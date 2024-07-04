@@ -93,16 +93,17 @@ export default function Textform(props) {
 
     // Update statistics whenever 'text' changes
     useEffect(() => {
-        updateStatistics(text);
-    }, [text]);
-
-    // Count words, characters, and sentences
+        // Count words, characters, and sentences
     const updateStatistics = (newText) => {
         setWordCount(countWords(newText));
         setCharCount(countChars(newText));
         setSentenceCount(countSentences(newText));
     };
 
+        updateStatistics(text);
+    }, [text]);
+
+    
     const countWords = (text) => {
         return text.split(/\s+/).filter(word => word.length > 0).length;
     };
